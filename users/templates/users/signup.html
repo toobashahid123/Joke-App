@@ -1,0 +1,79 @@
+
+{% extends 'users/base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6">
+            <div class="card border-0 shadow p-4 rounded">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Sign Up</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <!-- Username -->
+                        {{ form.username.errors }}
+                        <div class="mb-3">
+                            <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                            {{ form.username }}
+                        </div>
+                        
+                        <!-- Email -->
+                        {{ form.email.errors }}
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                            {{ form.email }}
+                        </div>
+                        
+                        <!-- Password -->
+                        {{ form.password1.errors }}
+                        <div class="mb-3">
+                            <label for="{{ form.password1.id_for_label }}" class="form-label">Password</label>
+                            {{ form.password1 }}
+                        </div>
+                        
+                        <!-- Password confirmation -->
+                        {{ form.password2.errors }}
+                        <div class="mb-3">
+                            <label for="{{ form.password2.id_for_label }}" class="form-label">Password confirmation</label>
+                            {{ form.password2 }}
+                        </div>
+                        
+                        <!-- Submit button -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary rounded-pill px-4">Sign Up</button>
+                        </div>
+                    </form>
+                    
+                    <!-- Login link -->
+                    <hr class="my-4">
+                    <p class="text-center">Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% comment %} {% extends 'users/base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <form method="post" class="card border-0 shadow p-4 rounded-3">
+        {% csrf_token %}
+        <h2 class="card-title text-center mb-4">Sign Up</h2>
+        {{ form.as_p }}
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg rounded-pill">Sign Up</button>
+        </div>
+        <div class="text-center mt-3">
+            <p class="mb-0">Already have an account? <a href="{% url 'login' %}" class="text-decoration-none">Login</a></p>
+        </div>
+    </form>
+</div>
+{% endblock %}  {% endcomment %}

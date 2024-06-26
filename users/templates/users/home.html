@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow p-4 rounded-3">
+                {% if user.is_authenticated %}
+                <h1 class="card-title text-center mb-4" style="color: brown;">Welcome to the Joke App</h1>
+                <p class="card-text text-center">Your joke for today:</p>
+                <div class="card-text text-center fs-4 mb-4">{{ joke }}</div>
+                {% else %}
+                <h1 class="card-title text-center mb-4">Welcome to the Joke App</h1>
+                <p class="card-text text-center">Please <a href="{% url 'login' %}" class="text-decoration-none">log in</a> to see a joke.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
